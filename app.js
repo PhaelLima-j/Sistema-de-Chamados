@@ -5,7 +5,6 @@ const express = require('express');
 const passport = require('passport');
 
 const { logger } = require('./utils');
-const { connect } = require('./models');
 const router = require('./routes');
 
 const app = express();
@@ -36,8 +35,6 @@ app.use(function(err, _req, res, _next) {
 
 const porta = 3000;
 app.listen(porta, () => {
-  connect();
-
   logger.info(`Servidor ouvindo na porta ${porta}`);
 });
 

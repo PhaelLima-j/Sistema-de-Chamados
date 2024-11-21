@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chamados - Optimize Consultoria</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="https://via.placeholder.com/50" alt="Logo">
+                <h2>Optimize Consultoria</h2>
+            </div>
+            <nav class="menu">
+                <a href="#" class="menu-item active">Início</a>
+                <a href="#" class="menu-item">Abrir Chamados</a>
+                <a href="#" class="menu-item">Seus Chamados</a>
+            </nav>
+            <button class="logout">Sair</button>
+        </aside>
+        <main class="content">
+            <header>
+                <h1>Abrir Chamado</h1>
+            </header>
+            <form class="form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="titulo">Título Do Chamado</label>
+                        <input type="text" id="titulo">
+                    </div>
+                    <div class="form-group">
+                        <label for="identificador">Identificador</label>
+                        <input type="text" id="identificador">
+                    </div>
+                    <div class="form-group">
+                        <label for="urgencia">Urgência</label>
+                        <input type="text" id="urgencia">
+                    </div>
+                    <div class="form-group">
+                        <label for="gravidade">Gravidade</label>
+                        <input type="text" id="gravidade">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="data">Data</label>
+                        <input type="date" id="data">
+                    </div>
+                    <div class="form-group">
+                        <label for="ferramenta">Ferramenta</label>
+                        <input type="text" id="ferramenta">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <span>Atendimento para ambiente de:</span>
+                        <label><input type="radio" name="ambiente" value="teste"> Teste</label>
+                        <label><input type="radio" name="ambiente" value="producao"> Produção</label>
+                    </div>
+                    <div class="form-group">
+                        <label for="emails">E-mails para serem notificados</label>
+                        <textarea id="emails"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="descricao">Descrição</label>
+                    <textarea id="descricao" rows="5"></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Enviar</button>
+            </form>
+        </main>
+    </div>
+</body>
+</html>

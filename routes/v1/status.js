@@ -1,9 +1,12 @@
 const express = require('express');
 
-const v1Router = require('./v1');
-
 const router = express.Router();
 
-router.use('/v1', v1Router);
+router.get('/', (_req, res) => {
+  res.json({
+    sucesso: true,
+    status: 'ok',
+  });
+});
 
 module.exports = router;

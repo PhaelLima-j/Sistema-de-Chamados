@@ -1,9 +1,10 @@
 const express = require('express');
 
-const v1Router = require('./v1');
+const statusRouter = require('./status');
 
 const router = express.Router();
 
-router.use('/v1', v1Router);
+router.use('/status', statusRouter);
+
 
 module.exports = router;

@@ -1,5 +1,6 @@
 require('dotenv').config()
 
+const { PrismaClient } = require('@prisma/client');
 const createError = require('http-errors');
 const express = require('express');
 const passport = require('passport');
@@ -7,6 +8,7 @@ const passport = require('passport');
 const { logger } = require('./utils');
 const router = require('./routes');
 
+const prisma = new PrismaClient();
 const app = express();
 
 //  configurando autenticação
@@ -34,8 +36,28 @@ app.use(function(err, _req, res, _next) {
 });
 
 const porta = 3000;
-app.listen(porta, () => {
-  logger.info(`Servidor ouvindo na porta ${porta}`);
+
+const startServer = async () => {
+  try {
+    await prisma.$connect();
+    logger.info(`Conexão com banco de dados bem sucedida!`);
+    
+    app.listen(porta, () => {
+      logger.info(`Servidor ouvindo na porta ${porta}`);
+    });
+
+  } catch (error) {
+    logger.error(`Erro ao conectar ao banco de dados: ${error.message}`);
+    process.exit(1);
+  }
+}
+
+startServer();
+
+process.on('SIGINT', async () => {
+  logger.info('Encerrando o servidor...');
+  await prisma.$disconnect();
+  process.exit(0);
 });
 
 module.exports = app;

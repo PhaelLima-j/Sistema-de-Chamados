@@ -9,7 +9,7 @@ const Usuario = async (dadosUsuario) => {
             nome: dadosUsuario.nome,
             email: dadosUsuario.email,
             senha: dadosUsuario.senha,
-            criadoem: dadosUsuario.criadoem,
+            criadoEm: dadosUsuario.criadoem,
         },
     });
 

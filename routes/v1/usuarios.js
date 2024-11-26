@@ -1,5 +1,4 @@
 const express = require('express');
-const passport = require('passport');
 
 const { criaUsuario } = require('../../services');
 const { logger } = require('../../utils');

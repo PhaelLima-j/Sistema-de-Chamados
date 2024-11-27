@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <title>Tela de Login</title>
+    <link rel="stylesheet" href="/stylesheets/login/login.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+ 
+<body>
+    <div class="logo">
+        <img src="/image/cropped-Optimize_logo_white.png" alt="logo-optimize">
+    </div>
+    <div class="wrapper">  
+        <form action="/auth" method="post">
+            <h1>Login</h1>
+            <p id="text-ajuda">Digite os seus dados de acesso nos campos abaixo:</p>
+            <div class="input-box">
+                <p>E-mail:</p>
+                <input type="text" name="email" required>
+                <i class='bx bxs-user'></i>
+            </div>
+            <div class="input-box">
+                <p>Senha:</p>
+                <input type="password" name="password"  required>
+                <i class='bx bxs-lock-alt'></i>
+            </div>
+   
+            <% if (error) { %>
+                <p class="text-center error-message">Usuário / senha incorretos</p>
+            <% } %>
+   
+            <button type="submit" class="btn">Login</button>
+            <button type="submit" class="btn-reg">Registre-se</button>
+        </form>
+    </div>
+    </body>
+    </html>

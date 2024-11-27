@@ -2,8 +2,10 @@ require('dotenv').config()
 
 const { PrismaClient } = require('@prisma/client');
 const createError = require('http-errors');
+const session = require('express-session');
 const express = require('express');
 const passport = require('passport');
+const path = require('path');
 
 const { logger } = require('./utils');
 const router = require('./routes');
@@ -11,12 +13,29 @@ const router = require('./routes');
 const prisma = new PrismaClient();
 const app = express();
 
-//  configurando autenticação
-app.use(passport.initialize());
 
 // configurando formatos de parâmetros
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+//  configurando autenticação
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false,
+  cookie: { secure: false }  // Defina `secure: true` se estiver usando HTTPS
+
+}))
+app.use(passport.initialize());
+app.use(passport.session());
+
+// declarando ejs
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+
+
+//configurando arquivos estaticos
+app.use(express.static('public'));
 
 // declarando rotas
 app.use('/', router);

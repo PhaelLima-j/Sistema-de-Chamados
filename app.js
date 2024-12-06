@@ -16,6 +16,8 @@ require('./routes/auth/local'); // Certifique-se de ajustar o caminho corretamen
 const prisma = new PrismaClient();
 const app = express();
 
+// Definindo layout
+
 // configurando formatos de parâmetros
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

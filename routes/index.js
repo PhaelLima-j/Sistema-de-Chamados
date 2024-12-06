@@ -1,9 +1,19 @@
 const express = require('express');
+const { checaAutenticado } = require('./middlewares/checa-autenticacao');
+const passport = require('passport');
 
-const v1Router = require('./v1');
+
+const statusRouter = require('./status');
+const usuariosRouter = require('./usuarios');
+const authRouter = require('./auth');
+const homeRouter = require('./home');
 
 const router = express.Router();
 
-router.use('/v1', v1Router);
+router.use('/status', statusRouter);
+router.use('/usuarios', usuariosRouter);
+router.use('/auth', authRouter);
+router.use('/', homeRouter);
+
 
 module.exports = router;

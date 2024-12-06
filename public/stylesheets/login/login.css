@@ -53,8 +53,8 @@ body {
     padding-left: 150px;
 }
  
-
-
+ 
+ 
 .input-box input {
     width: 100%;
     height: 100%;
@@ -64,7 +64,8 @@ body {
     border: 2px solid #E34161;
     font-size: 16px;
     color: #1F1E1E;
-    padding: 35px 45px 20px 20px;
+    padding: 25px 55px;
+    padding-left: 20px;
 }
  
 .input-box input::placeholder {
@@ -114,15 +115,21 @@ color: #1F1E1E;
 .wrapper .btn {
     margin-top: 50px;
     width: 100%;
-    height: 45px;
-    background: #7800E5;
+    height: 55px;
+    background: #E34161;
+    border-radius: 16px;
     border: none;
-    outline: none;
     box-shadow: 0 0 10px rgba(0, 0, 0, .1);
     cursor: pointer;
     font-size: 16px;
     color: #fff;
     font-weight: 600;
+    transition: 0.1s;
+}
+ 
+.wrapper .btn.btn:hover {
+    background: #b63650;
+    transform: scale(1.05);
 }
  
  

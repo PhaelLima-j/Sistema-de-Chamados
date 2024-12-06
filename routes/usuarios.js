@@ -1,7 +1,7 @@
 const express = require('express');
 
-const { criaUsuario } = require('../../services');
-const { logger } = require('../../utils');
+const { criaUsuario } = require('../services');
+const { logger } = require('../utils');
 const router = express.Router();
 
 router.post('/', async(req, res) => {

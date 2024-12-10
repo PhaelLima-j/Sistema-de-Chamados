@@ -30,6 +30,7 @@ model Chamado {
   urgencia  Urgencia
   status    Status    @default(ABERTO)
   data      DateTime  @default(now())
+  anexo     String?
   usuarioId Int
   usuario   Usuario   @relation(fields: [usuarioId], references: [id])
 }

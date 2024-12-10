@@ -14,20 +14,42 @@ datasource db {
 }
 
 model Usuario {
-  id        Int      @id @default(autoincrement())
-  nome      String
-  email     String   @unique
-  senha     String
-  criadoEm  DateTime @default(now())
-  chamados  Chamado[]
+  id       Int       @id @default(autoincrement())
+  nome     String
+  email    String    @unique
+  senha    String
+  criadoEm DateTime  @default(now())
+  chamados Chamado[]
 }
 
 model Chamado {
-  id         Int      @id @default(autoincrement())
-  titulo     String
-  descricao  String
-  status     String   @default("aberto")
-  criadoEm   DateTime @default(now())
-  usuarioId  Int
-  usuario    Usuario  @relation(fields: [usuarioId], references: [id])
+  id        Int       @id
+  titulo    String
+  descricao String
+  gravidade Gravidade
+  urgencia  Urgencia
+  status    Status    @default(ABERTO)
+  data      DateTime  @default(now())
+  usuarioId Int
+  usuario   Usuario   @relation(fields: [usuarioId], references: [id])
+}
+
+enum Gravidade {
+  ERRO_IMPEDE_CONTINUIDADE
+  SISTEMA_INDISPONIVEL
+  ERRO_CRITICO
+  ERRO_MEDIO_MENOR_IMPACTO
+  DUVIDAS_MELHORIAS
+}
+
+enum Urgencia {
+  ACAO_IMEDIATA
+  ATENDER_CEDO_POSSIVEL
+  PRAZO_PADRAO
+}
+
+enum Status {
+  ABERTO
+  EM_ANDAMENTO
+  CONCLUIDO
 }

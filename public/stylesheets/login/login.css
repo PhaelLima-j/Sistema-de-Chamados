@@ -19,6 +19,7 @@ body {
 }
  
 .wrapper {
+    border-radius: 20px;
     justify-content: flex-end;
     background: #E7E7E7;
     color: #1F1E1E;
